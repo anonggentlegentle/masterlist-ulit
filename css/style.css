@@ -16,6 +16,7 @@ body {
   min-height: 100vh;
   margin: 0;
   padding: 0;
+  font-size: 2rem;
   display: grid;
   place-items: center;
 }
@@ -28,27 +29,70 @@ video {
   width: 100%;
 }
 
-.main {
+.header {
+  padding-top: 1rem;
+  text-align: center;
+  position: sticky;
+  top: 0;
+  left: 0;
+  background-color: white;
+  height: 100%;
+  font-weight: 700;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.header__container {
+  height: 100%;
+  display: flex;
+}
+.header__content {
+  padding: 1rem;
+  width: 25rem;
   border: 1px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.header__pic {
+  width: 10rem;
+  border: 1px solid black;
+}
+
+.main {
+  min-width: 100%;
+  text-align: center;
+  overflow-x: auto;
+}
+.main__header {
+  position: sticky;
 }
 .main__container {
   height: 100%;
-  font-size: 3rem;
-  border: 1px solid black;
   display: flex;
-  column-gap: 2rem;
-  align-items: center;
+  justify-content: center;
 }
 .main__content {
-  height: 20rem;
-  width: 20rem;
+  padding: 1rem;
+  width: 25rem;
+  border: 1px solid black;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 .main__pic {
-  width: 20rem;
-  height: 20rem;
+  width: 10rem;
+  border: 1px solid black;
+}
+
+.heading--1 {
+  font-size: 10rem;
+  padding: 0;
+}
+
+.button__sort {
+  cursor: pointer;
 }
 
 /*# sourceMappingURL=style.css.map */

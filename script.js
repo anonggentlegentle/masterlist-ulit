@@ -5842,14 +5842,8 @@ const data = [
 
 console.log(data);
 
-// document.querySelector(".main__last").innerHTML = data[0].lastName;
-// document.querySelector(".main__first").innerHTML = data[0].firstName;
-// document.querySelector(".main__middle").innerHTML = data[0].middleName;
-// document.querySelector(".main__suffix").innerHTML = data[0].suffix;
-// document.querySelector(".main__fullname").innerHTML = data[0].fullName;
-
 const addPerson = function () {
-  data.forEach((element) => {
+  data.forEach((element, i) => {
     document.querySelector(".main").insertAdjacentHTML(
       "beforeend",
       `
@@ -5860,9 +5854,63 @@ const addPerson = function () {
         <p class="main__content main__middle">${element.middleName}</p>
         <p class="main__content main__suffix">${element.suffix}</p>
         <p class="main__content main__fullname">${element.fullName}</p>
+        <p class="main__content main__sex">${element.sex}</p>
+        <p class="main__content main__birthDate">${element.birthDate}</p>
+        <p class="main__content main__contactNumber">${element.contactNum}</p>
+        <p class="main__content main__email">${element.email}</p>
+        <p class="main__content main__address">${element.address}</p>
+        <p class="main__content main__department">${element.department}</p>
+        <p class="main__content main__position">${element.position}</p>
+        <p class="main__content main__startDate">${element.startDate}</p>
+        <p class="main__content main__monthsActive">${element.monthsActive}</p>
+        <p class="main__content main__regularizationDate">
+          ${element.regularization}
+        </p>
+        <p class="main__content main__employmentStatus">
+          ${element.employmentStatus}
+        </p>
+        <p class="main__content main__prcNumber">${element.prcNum}</p>
+        <p class="main__content main__prcExpiryDate">${element.prcExpiry}</p>
+        <p class="main__content main__sssNumber">${element.sssNum}</p>
+        <p class="main__content main__phicNumber">${element.phicNum}</p>
+        <p class="main__content main__pagibigNumber">${element.pagibigNum}</p>
+        <p class="main__content main__birNumber">${element.birNum}</p>
+        <p class="main__content main__idNumber">${element.idNum}</p>
     </div>`
     );
   });
 };
+
+document
+  .querySelector(".button__sort--name")
+  .addEventListener("click", function () {
+    data.sort((a, b) => {
+      let lowerCaseA = a.lastName.toLocaleLowerCase();
+      let lowerCaseB = b.lastName.toLocaleLowerCase();
+
+      if (lowerCaseA < lowerCaseB) {
+        return -1;
+      }
+      if (lowerCaseA > lowerCaseB) {
+        return 1;
+      }
+      return 0;
+    });
+
+    document.querySelector(".main").innerHTML = "";
+
+    addPerson();
+  });
+
+document
+  .querySelector(".button__sort--id")
+  .addEventListener("click", function () {
+    data.sort((a, b) => {
+      return a.idNum - b.idNum;
+    });
+
+    document.querySelector(".main").innerHTML = "";
+    addPerson();
+  });
 
 addPerson();
